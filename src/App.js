@@ -22,10 +22,13 @@ class App extends Component {
   
   async handleSubmit() {
     if (this.state.worker) {
+      // Using web worker
       await worker.doSomething();
     } else {
-      for (let i = 0; i < 5000; i++) {
-        console.log(Math.random());
+      // Not using web worker
+      for (let i = 0; i < 8000; i++) {
+        const num = Math.random();
+        console.log(num);
       }
     }
   }
